@@ -1,6 +1,6 @@
 """
-Problem :
-Link : 
+Link : https://www.hackerrank.com/challenges/py-if-else/problem?isFullScreen=true
+Problem : If-Else
 Given an integer,n, perform the following conditional actions:
 If n is odd, print Weird
 If n is even and in the inclusive range of 2 to 5, print Not Weird
