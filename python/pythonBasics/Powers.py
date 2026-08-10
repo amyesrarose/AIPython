@@ -18,4 +18,3 @@ if __name__ == '__main__':
 
     print(pow(a,b)) # prints a power of b. "pow" is a built in funtion
     print(pow(a,b,m)) # prints result of (a **b) % m  using built in method
-
