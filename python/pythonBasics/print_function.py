@@ -1,7 +1,7 @@
 """
 Problem : Print Function
 Link : https://www.hackerrank.com/challenges/python-print/problem?isFullScreen=true
-
+Level : Easy
 The included code stub will read an integer,n, from STDIN.
 Without using any string methods, try to print the following:
 123.....n
