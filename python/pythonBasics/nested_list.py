@@ -50,6 +50,15 @@ Harry
 """
 
 if __name__ == '__main__':
+    students = [] # creating list to hold name and score pairs as list
     for _ in range(int(input())):
-        name = input(
-        score = float(input()))
+        name = input() #reading name
+        score = float(input()) #reading score
+        students.append([name,score]) # adding name and score in the list
+    no_dup_list = sorted(list(set(score for name,score in students))) #casting to set to remove duplicates
+    #casting to list since set is not ordered
+    # sorted() sort the list lowest to highest
+    second_low= no_dup_list[1]# reading index one to get second lowest value
+    second_low_students= sorted([name for name,score in students if score ==second_low]) # iterating through list of students
+    # to get names of the students who has second lowest value since set removed duplicate values and putting in sorted() to get alphabetical order
+    print(*second_low_students, sep="\n") #unpacking and putting each value in new line for required format
