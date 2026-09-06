@@ -62,6 +62,6 @@ def chatbot(query:str):# chatbot is method that accept query as a parameter and 
 
     return response.choices[0].message.content
 
-#output = chatbot("Who one the FIFA 2026?")
+#output = chatbot("where is the taj mahal?")
 
-#print(output)
+    print(output)
