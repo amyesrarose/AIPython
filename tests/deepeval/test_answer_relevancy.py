@@ -32,7 +32,22 @@ query that have been asked by the user or not.
 
 Semantic Similarity - How similar the two sentences are based on their MEANINGS
 NOT based on the exact keyword.
-we can run with oython, pytest and deepevalpytest
+we can run with python, pytest and deepevalpytest
+
+The answer relevancy metric uses LLM-as-a-judge to measure the quality of your RAG pipeline's generator by evaluating how relevant the actual_output of your LLM application is compared to the provided input. deepeval's answer relevancy metric is a self-explaining LLM-Eval, meaning it outputs a reason for its metric score.
+Required arguments : 
+input
+actual_output
+
+8 optional parameters
+threshold(0.5) minimum passing score
+model (gpt-5.4) Open AI's default model
+include_reason (True) reason for evaluation will be included
+strict_mode (False) enforcing perfect score 1
+async_mode (True) allow concurrent run to speed up process. when it is false waits each request to complete to run other one
+verbose_mode(False) show intermediate steps
+evaluation_template (default to deepeval's prompt) we can override it by provind value
+flack(False) marks as flaky
 """
 from dotenv import load_dotenv
 load_dotenv()
