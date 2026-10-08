@@ -1,0 +1,26 @@
+description: This test validates the answer is relavant to the query or not, using model graded evalauation
+# yaml file can not have multiple providers,prompts and tests.However providers can have multiple ids, prompts can have multiple values and test can have multiple variables
+# so all metrics can multiple values
+providers: # provider can be model(id), API, function
+  - id: openai:gpt-4o-mini
+
+prompts: 
+  - "You are professional banking costumer AI assistant
+      answer {{prompt}}"  # value inside of {{}} is placeholder that will be used/called inside test
+
+tests: 
+
+  - vars:
+    prompt : "How to reset the ATM PIN?"
+    assert: #requires type and 
+      - type: answer-relevance
+        threshold: 0.8 #for model graded threshold. for 
+
+  - vars:
+    prompt: "How to apply for personal loan?"
+    assert:
+      - type: answer-relevance
+        threshold: 0.8
+
+        # promptfoo eval -c PathOfFile    to run prompt foo
+        

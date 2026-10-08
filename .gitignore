@@ -13,3 +13,4 @@ __pycache__/
 # Test & Tool Caches
 .pytest_cache/
 .deepeval
+node_modules/
