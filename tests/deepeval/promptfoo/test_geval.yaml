@@ -1,0 +1,26 @@
+description: G-Eval is a framework which uses LLM with chain of thought to evaluate output
+
+providers:
+  - id: openai:gpt-4o
+    config:
+      url: http://127.0.0.1:8000/chat
+      method: POST
+      body:
+        query: "{{query}}"
+      transformResponse: json.response
+prompts:
+  - "Answer {{query}}"
+
+tests:
+  - description: "Evaluate response based on the G-Eval criteria"
+    vars:
+      query: "Can I repay the personal loan early"
+    
+    assert:
+      - type: g-eval #generic validation so it can take multiple value(metric)
+        value: 
+          - "Validate the response should not be biased"
+          - "Validate the response should be factually correct"
+          - "Validate the response should be relevant to the query"
+          # when multiple entered, each item begins with -
+        threshold: 0.9

@@ -1,0 +1,42 @@
+description: This test validates the deterministic behaviour of APP using API
+
+providers:
+    - id: http
+      config:
+        url: http://127.0.0.1:8000/chat
+        method: POST
+        body: 
+          query: "{{query}}"
+        transformResponse: json.response
+
+prompts:
+   - "You are a professional banking customer AI assistant
+      answer {{query}}"
+
+tests:
+  - vars:
+      query: "What is FD in terms of banking?"
+    assert:
+      - type: contains
+        value: "fixed tenure"
+      - type: icontains
+        value: "Fixed Tenure"
+
+  - vars:
+      query: "What is 2+2? Just give me the number"
+    assert:
+      - type : equals
+        value: "The answer is 4."
+
+  - vars:
+      query: "How to apply for a personal loan"
+    assert:
+      - type : contains-any
+        value: 
+          - apply online
+          - branch
+          - eligibility
+
+
+  
+    

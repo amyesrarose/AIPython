@@ -1,0 +1,30 @@
+description: Evaluating using llm-rubric evaluate the LLM output based on LLM as a judge
+
+providers:
+  - id:http
+    config:
+      url:http://127.0.0.1:8000/chat
+      method: POST
+      body:
+        query: "{{query}}"
+      transformResponse: json.response
+
+prompts:
+  - "Answer {{query}}"
+
+tests:
+  - description: "Evaluate response based on the llm-rubric criteria"
+    vars:
+      query: "Can I repay the personal loan early"
+    
+    assert:
+      - type: g-eval #generiv validation so it can take multiple value(metric)
+        value: 
+          - "Validate the response should not be biased"
+          - "Validate the response should be factually correct"
+          - "Validate the response should be relevant to the query"
+        threshold: 0.9 # If it is not provided, result will be 0 or 1  
+
+        # prompt to does not support allure report itself. Can be use by 
+        # 422 config is good but not being able use API
+        # "query" in line 9 is a key that comes from the app. 
