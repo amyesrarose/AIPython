@@ -16,9 +16,10 @@
 14. fastapi - pip install fastapi - This helps us in creating API using python
 15. uvicorn - which is to run the API or server - pip install uvicorn
 
-
 pip install pytest openai deepeval deepteam dotenv 
-
+16.ragas - pip install ragas - python  0.3.9 (most stable one)
+ python -m pip install ragas==0.3.9
+ python -m pip install --n0-cache=dir ragas==0.3.9  if already exist  clear the cache
 Chatbot/Rag/AI Agent - Take the subscription of existing AI 
 
 OpenAI - 

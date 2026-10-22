@@ -98,7 +98,7 @@ Step 1 : User ask a query
 Step 2 : Search relevant DATA - PDF, database, JIRA, sharepoint etc
 Retrieval system (LLM) searches the relevant document
 
-Step 3: Retrieval system return the retrieval context
+Step 3: Retrieval system return the retrieval context 
 Step 4: Context will be Injected into the prompt
 
 Employee is getting 70 days - context
